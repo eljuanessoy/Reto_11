@@ -115,18 +115,104 @@ else:
 3. Desarrolle un programa que permita obtener la  [matriz transpuesta](https://es.wikipedia.org/wiki/Matriz_transpuesta) de una matriz ingresada. El programa debe validar las condiciones necesarias para ejecutar la operación.
 
 ```python
+def matrizTranspuesta(m): #función que hace una matriz transpuesta
+    resultado = []    
+    for j in range(len(m[0])):
+        fila = []
+        for i in range(len(m)):
+            fila.append(m[i][j]) #agregar el valor de la celda a la nueva fila
+        resultado.append(fila)
+    return resultado
 
+m = []
+f = int(input("Ingrese el número de filas de la matriz: "))  #se ingresa por parte del usuario la cantidad de filas de la matriz
+c = int(input("Ingrese el número de columnas de la matriz: ")) #se ingresa por parte del usuario la cantidad de columnas de la matriz
+
+for i in range(f):
+    fila = []
+    for j in range(c):
+        valor = int(input(f"Ingrese el valor en la posición ({i}, {j}): "))
+        fila.append(valor)
+    m.append(fila)
+
+print("Matriz ingresada: ") #se imprime la matriz ingresada
+for fila in m:
+    print(fila)
+
+resultadoTranspuesta = matrizTranspuesta(m)  #se calcula la matriz transpuesta usando la funcion
+print("Matriz transpuesta:") #se imprime la matriz transpuesta
+for fila in resultadoTranspuesta:
+    print(fila)
 ```
 
 4. Desarrollar un programa que sume los elementos de una columna dada de una matriz.
 
 ```python
+import random #importamos la funcion random
 
+def Matriz(fil, colum):  #funcion que almacena los valores ingresados para la matriz
+    matriz = []
+    for i in range(fil):
+        fila = []
+        for n in range(colum):
+            fila.append(random.randint(1, 100))
+        matriz.append(fila)
+    return matriz
+
+def suma_columna(matriz, NumColumna): #funcion que suma los valores de la columna seleccionada
+  suma = 0
+  for fila in matriz:
+    suma += fila[NumColumna]
+  return suma
+
+if __name__ == "__main__":
+    f = int(input("Ingrese el número de filas de la matriz: ")) #se ingresa por parte del usuario la cantidad de filas de la matriz
+    c = int(input("Ingrese el número de columnas de la matriz: ")) #se ingresa por parte del usuario la cantidad de columnas de la matriz
+    matriz = Matriz(f, c)
+    print()
+    print("Matriz ingresada: ") #se imprime la matriz ingresada             
+    for fila in matriz:
+      print(fila)
+    print()
+
+if __name__ == "__main__":
+   NumColumna = int(input("Ingrese el número de la columna que va a sumar (No olvide que la primera columna es cero): ")) #seleccionamos el numero de columna que se sumara
+   SumaColumna = suma_columna(matriz, NumColumna) #ingresamos los datos a la funcion
+   print()
+   print(f"La suma de los elementos de la columna {NumColumna} es: ") #imprimimos el resultado de los datos ingresados
+   print(SumaColumna)
 ```
 
 5. Desarrollar un programa que sume los elementos de una fila dada de
 una matriz.
 
 ```python
+def matriz(fil, colum): #funcion que almacena los valores ingresados para la matriz
+    m = [] 
+    for i in range(fil):
+       fila =[] #almacenamos los elementos con el ciclo for
+       for j in range(colum):
+           n = int(input(f"Ingrese un número [{i}][{j}]: ")) 
+           fila.append(n) 
+       m.append(fila) 
+    return m
+    
+    
+def suma(mA:list, fil:int) -> float: #las entradas de la función son una lista y un entero y retorna un flotante
+    SFila= sum(mA[fil-1]) #suma de los elementos de la columna dada
+    return SFila
 
+
+if __name__ == "__main__":
+    f = int(input("Ingrese el número de filas de la matriz: ")) #se ingresa por parte del usuario la cantidad de filas de la matriz
+    c = int(input("Ingrese el número de columnas de la matriz: ")) #se ingresa por parte del usuario la cantidad de columans de la matriz
+    Sfil = int(input("Ingrese la fila a sumar: ")) #se escoge lafila que se sumara
+    mA= matriz(f, c) #introducimos los datos a la funcion
+    print ("Matriz ingresada: ") #imprimimos la matriz ingresada
+    for i in range(len(mA)):
+        print(mA[i])
+        
+    SFila = suma(mA, Sfil)
+    print(f"La suma de los elementos de la fila {Sfil} es: ") #imprimimos el resultado de la suma
+    print(SFila)
 ```
