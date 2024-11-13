@@ -1,7 +1,7 @@
 # Reto #11 😲
 By Juan Esteban Molina Rey (eljuanessoy)
 
-1. Desarrolle un programa que permita realizar la [suma/resta de matrices](https://es.wikipedia.org/wiki/Adici%C3%B3n_matricial). El programa debe validar las condiciones necesarias para ejecutar la operación.
+### 1. Desarrolle un programa que permita realizar la [suma/resta de matrices](https://es.wikipedia.org/wiki/Adici%C3%B3n_matricial). El programa debe validar las condiciones necesarias para ejecutar la operación.
 
 ```python
 def Matriz(fil,colum):  #se definene las variables de la funcion
